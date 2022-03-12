@@ -1,11 +1,11 @@
 package toyrobot.robot;
 
-import toyrobot.util.Direction;
+import toyrobot.util.Vector;
 
 public class RobotFactory {
 
-    public static IRobot getRobot(int x, int y, Direction face) {
-        return new ToyRobot(x, y, face);
+    public static IRobot getRobot(Vector vector) {
+        return new ToyRobot(vector);
     }
     
 }
