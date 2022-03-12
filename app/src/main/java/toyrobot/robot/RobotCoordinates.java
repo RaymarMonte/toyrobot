@@ -1,11 +1,11 @@
 package toyrobot.robot;
 
-public class RobotPosition {
+public class RobotCoordinates {
     
     private int positionX;
     private int positionY;
 
-    public RobotPosition(int positionX, int positionY) {
+    public RobotCoordinates(int positionX, int positionY) {
         this.positionX = positionX;
         this.positionY = positionY;
     }
@@ -26,6 +26,17 @@ public class RobotPosition {
         this.positionY = positionY;
     }
 
+    /**
+     * Adds 2 coordinates and return the resulting RobotCoordinate.
+     */
+    public static RobotCoordinates addCoordinates(
+        RobotCoordinates coordinate1, RobotCoordinates coordinate2) {
+        return new RobotCoordinates(
+            coordinate1.getPositionX() + coordinate2.getPositionX(),
+            coordinate1.getPositionY() + coordinate2.getPositionY()
+        );
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -43,7 +54,7 @@ public class RobotPosition {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        RobotPosition other = (RobotPosition) obj;
+        RobotCoordinates other = (RobotCoordinates) obj;
         if (positionX != other.positionX)
             return false;
         if (positionY != other.positionY)

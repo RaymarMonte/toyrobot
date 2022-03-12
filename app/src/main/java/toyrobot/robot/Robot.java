@@ -5,7 +5,7 @@ public interface Robot {
     public void move();
     public void rotateLeft();
     public void rotateRight();
-    public RobotPosition nextMovePosition();
+    public RobotCoordinates nextMovePosition();
     public RobotData getCurrentData();
 
 }

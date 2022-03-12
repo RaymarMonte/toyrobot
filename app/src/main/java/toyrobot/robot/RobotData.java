@@ -4,20 +4,20 @@ import toyrobot.Direction;
 
 public class RobotData {
     
-    private RobotPosition position;
+    private RobotCoordinates position;
     /** The direction that the robot is facing. */
     private Direction facing;
     
-    public RobotData(RobotPosition position, Direction facing) {
+    public RobotData(RobotCoordinates position, Direction facing) {
         this.position = position;
         this.facing = facing;
     }
     
-    public RobotPosition getPosition() {
+    public RobotCoordinates getPosition() {
         return position;
     }
 
-    public void setPosition(RobotPosition position) {
+    public void setPosition(RobotCoordinates position) {
         this.position = position;
     }
 
