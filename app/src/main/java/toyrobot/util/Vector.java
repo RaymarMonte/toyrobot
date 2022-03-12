@@ -13,6 +13,10 @@ public class Vector {
         this.orientation = orientation;
     }
 
+    public Vector(int x, int y, Direction orientation) {
+        this(new Coordinates(x, y), orientation);
+    }
+
     /** Copy constructor */
     public Vector(Vector toCopy) {
         this.coordinates = new Coordinates(toCopy.coordinates);
