@@ -9,7 +9,7 @@ import toyrobot.util.Coordinates;
 import toyrobot.util.Direction;
 import toyrobot.util.Vector;
 
-class ToyRobotTest {
+class RobotTest {
 
     @Test void predictNextPositionAfterMoving() {
         ToyRobot robot = new ToyRobot(0, 0, Direction.NORTH);
