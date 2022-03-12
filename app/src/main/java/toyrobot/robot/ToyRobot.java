@@ -1,7 +1,6 @@
 package toyrobot.robot;
 
 import java.util.EnumMap;
-
 import toyrobot.util.Coordinates;
 import toyrobot.util.Direction;
 import toyrobot.util.Vector;
@@ -23,6 +22,10 @@ public class ToyRobot implements IRobot {
 
     public ToyRobot(Vector details) {
         this.details = details;
+    }
+
+    public ToyRobot(int x, int y, Direction orientation) {
+        details = new Vector(x, y, orientation);
     }
 
     @Override
