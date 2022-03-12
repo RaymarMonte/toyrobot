@@ -1,79 +1,81 @@
 package toyrobot;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
+
+import toyrobot.table.ITable;
+import toyrobot.table.TableFactory;
+import toyrobot.util.Direction;
+import toyrobot.util.Vector;
 
 class TableTest {
     
-    @Test void moveRobotWithoutPlacing() {
-        Table table = new Table();
-        assertThrows(RobotNotYetPlacedException.class,
-            () -> table.moveRobot());
+    @Test void moveWithoutPlacing() {
+        ITable table = TableFactory.getTable();
+        table.move();
+        assertFalse(table.report().isPresent());
     }
 
-    @Test void rotateLeftRobotWithoutPlacing() {
-        Table table = new Table();
-        assertThrows(RobotNotYetPlacedException.class,
-            () -> table.rotateRobotToLeft());
+    @Test void leftWithoutPlacing() {
+        ITable table = TableFactory.getTable();
+        table.left();
+        assertFalse(table.report().isPresent());
     }
 
-    @Test void rotateRightRobotWithoutPlacing() {
-        Table table = new Table();
-        assertThrows(RobotNotYetPlacedException.class,
-            () -> table.rotateRobotToRight());
+    @Test void rightWithoutPlacing() {
+        ITable table = TableFactory.getTable();
+        table.right();
+        assertFalse(table.report().isPresent());
     }
 
-    @Test void reportWithoutPlacingRobot() {
-        Table table = new Table();
-        assertThrows(RobotNotYetPlacedException.class,
-            () -> table.report());
+    @Test void reportWithoutPlacing() {
+        ITable table = TableFactory.getTable();
+        assertFalse(table.report().isPresent());
     }
 
-    @Test void placingRobot() {
-        Table table = new Table();
-        table.placeRobot(0, 1, Direction.NORTH);
-        Robot robot = table.report();
-        assertEquals(0, robot.getPositionX());
-        assertEquals(1, robot.getPositionY());
-        assertEquals(Direction.NORTH, robot.getFacing());
+    @Test void placeThenReport() {
+        ITable table = TableFactory.getTable();
+        table.place(new Vector(0, 1, Direction.NORTH));
+        assertEquals(new Vector(0, 1, Direction.NORTH),
+            table.report().get());
     }
 
-    @Test void movingRobot() {
-        Table table = new Table();
-        table.placeRobot(0, 0, Direction.NORTH);
-        table.moveRobot();
-        Robot robot = table.report();
-        assertEquals(1, robot.getPositionY());
+    @Test void moveThenReport() {
+        ITable table = TableFactory.getTable();
+        table.place(new Vector(2, 0, Direction.EAST));
+        table.move();
+        assertEquals(new Vector(3, 0, Direction.EAST),
+            table.report().get());
     }
     
-    @Test void rotatingRobotToLeft() {
-        Table table = new Table();
-        table.placeRobot(0, 0, Direction.NORTH);
-        table.rotateRobotToLeft();
-        Robot robot = table.report();
-        assertEquals(Direction.WEST, robot.getFacing());
+    @Test void leftThenReport() {
+        ITable table = TableFactory.getTable();
+        table.place(new Vector(1, 3, Direction.SOUTH));
+        table.left();
+        assertEquals(new Vector(1, 3, Direction.EAST),
+            table.report().get());
     }
 
-    @Test void rotatingRobotToRight() {
-        Table table = new Table();
-        table.placeRobot(0, 0, Direction.NORTH);
-        table.rotateRobotToRight();
-        Robot robot = table.report();
-        assertEquals(Direction.EAST, robot.getFacing());
+    @Test void rightThenReport() {
+        ITable table = TableFactory.getTable();
+        table.place(new Vector(4, 2, Direction.WEST));
+        table.right();
+        assertEquals(new Vector(4, 2, Direction.NORTH),
+            table.report().get());
     }
 
-    @Test void placingRobotOOB() { // OOB - Out of Bounds
-        Table table = new Table();
-        assertThrows(RobotOutOfBoundsException.class,
-            () -> table.placeRobot(10, 10, Direction.NORTH));
+    @Test void placingOOB() { // OOB - Out of Bounds
+        ITable table = TableFactory.getTable();
+        table.place(new Vector(5, 5, Direction.EAST));
+        assertFalse(table.report().isPresent());
     }
 
-    @Test void movingRobotToOOB() { // OOB - Out of Bounds
-        Table table = new Table();
-        table.placeRobot(4, 4, Direction.NORTH);
-        assertThrows(RobotOutOfBoundsException.class,
-            () -> table.moveRobot());
+    @Test void movingToOOB() { // OOB - Out of Bounds
+        ITable table = TableFactory.getTable();
+        table.place(new Vector(0, 0, Direction.SOUTH));
+        table.move();
+        assertEquals(new Vector(0, 0, Direction.SOUTH),
+            table.report().get());
     }
 }
