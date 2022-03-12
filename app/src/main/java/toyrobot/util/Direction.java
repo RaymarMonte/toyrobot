@@ -1,4 +1,4 @@
-package toyrobot;
+package toyrobot.util;
 
 /**
  * Represents directions commonly found in compasses. The order in which
