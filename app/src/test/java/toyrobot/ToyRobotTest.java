@@ -16,7 +16,7 @@ class ToyRobotTest {
         assertEquals(new Coordinates(0, 1), robot.nextMovePosition());
     }
     
-    @Test void toyRobotCanMove() {
+    @Test void toyRobotMovesOneStepForward() {
         ToyRobot robot = new ToyRobot(1, 1, Direction.EAST);
         robot.move();
         assertEquals(
