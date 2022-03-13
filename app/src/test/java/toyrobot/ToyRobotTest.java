@@ -6,37 +6,37 @@ import org.junit.jupiter.api.Test;
 
 import toyrobot.entities.Coordinates;
 import toyrobot.entities.Direction;
-import toyrobot.entities.Vector;
-import toyrobot.robot.ToyRobot;
+import toyrobot.entities.CoordinatesFacingADirection;
+import toyrobot.toyrobot.ToyRobot;
 
-class RobotTest {
+class ToyRobotTest {
 
-    @Test void predictNextPositionAfterMoving() {
+    @Test void toyRobotCanGiveInfoAboutNextMove() {
         ToyRobot robot = new ToyRobot(0, 0, Direction.NORTH);
         assertEquals(new Coordinates(0, 1), robot.nextMovePosition());
     }
     
-    @Test void movingRobot() {
+    @Test void toyRobotCanMove() {
         ToyRobot robot = new ToyRobot(1, 1, Direction.EAST);
         robot.move();
         assertEquals(
-            new Vector(new Coordinates(2, 1), Direction.EAST),
+            new CoordinatesFacingADirection(new Coordinates(2, 1), Direction.EAST),
             robot.getDetails());
     }
 
-    @Test void rotatingRobotToLeft() {
+    @Test void toyRobotCanRotateLeft() {
         ToyRobot robot = new ToyRobot(2, 2, Direction.SOUTH);
         robot.rotateLeft();
         assertEquals(
-            new Vector(new Coordinates(2, 2), Direction.EAST),
+            new CoordinatesFacingADirection(new Coordinates(2, 2), Direction.EAST),
             robot.getDetails());
     }
 
-    @Test void rotatingRobotToRight() {
+    @Test void toyRobotCanRotateRight() {
         ToyRobot robot = new ToyRobot(3, 3, Direction.WEST);
         robot.rotateRight();
         assertEquals(
-            new Vector(new Coordinates(3, 3), Direction.NORTH),
+            new CoordinatesFacingADirection(new Coordinates(3, 3), Direction.NORTH),
             robot.getDetails());
     }
 
