@@ -2,10 +2,10 @@ package toyrobot.table;
 
 import java.util.Optional;
 
+import toyrobot.entities.Coordinates;
+import toyrobot.entities.Vector;
 import toyrobot.robot.IRobot;
 import toyrobot.robot.RobotFactory;
-import toyrobot.util.Coordinates;
-import toyrobot.util.Vector;
 
 public class FixedDimensionsTable implements ITable {
     

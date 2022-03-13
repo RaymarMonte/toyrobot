@@ -1,7 +1,7 @@
 package toyrobot.robot;
 
-import toyrobot.util.Coordinates;
-import toyrobot.util.Vector;
+import toyrobot.entities.Coordinates;
+import toyrobot.entities.Vector;
 
 public interface IRobot {
     

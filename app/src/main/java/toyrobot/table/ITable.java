@@ -1,6 +1,6 @@
 package toyrobot.table;
 
-import toyrobot.util.Vector;
+import toyrobot.entities.Vector;
 
 public interface ITable {
 

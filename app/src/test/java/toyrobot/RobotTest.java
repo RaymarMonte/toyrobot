@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import toyrobot.entities.Coordinates;
+import toyrobot.entities.Direction;
+import toyrobot.entities.Vector;
 import toyrobot.robot.ToyRobot;
-import toyrobot.util.Coordinates;
-import toyrobot.util.Direction;
-import toyrobot.util.Vector;
 
 class RobotTest {
 

@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
+import toyrobot.entities.Direction;
+import toyrobot.entities.Vector;
 import toyrobot.table.ITable;
 import toyrobot.table.TableFactory;
-import toyrobot.util.Direction;
-import toyrobot.util.Vector;
 
 class TableTest {
     

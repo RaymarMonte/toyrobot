@@ -1,6 +1,6 @@
 package toyrobot.robot;
 
-import toyrobot.util.Vector;
+import toyrobot.entities.Vector;
 
 public class RobotFactory {
 

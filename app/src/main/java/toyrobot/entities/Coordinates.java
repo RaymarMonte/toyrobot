@@ -1,4 +1,4 @@
-package toyrobot.util;
+package toyrobot.entities;
 
 public class Coordinates {
     

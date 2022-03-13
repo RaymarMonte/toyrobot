@@ -1,4 +1,4 @@
-package toyrobot.util;
+package toyrobot.entities;
 
 /**
  * An entity that has coordinates and a direction it's facing.

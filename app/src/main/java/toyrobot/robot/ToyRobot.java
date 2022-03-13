@@ -1,9 +1,10 @@
 package toyrobot.robot;
 
 import java.util.EnumMap;
-import toyrobot.util.Coordinates;
-import toyrobot.util.Direction;
-import toyrobot.util.Vector;
+
+import toyrobot.entities.Coordinates;
+import toyrobot.entities.Direction;
+import toyrobot.entities.Vector;
 
 /**
  * Implementation of a robot that gets placed on a table, can move one step
