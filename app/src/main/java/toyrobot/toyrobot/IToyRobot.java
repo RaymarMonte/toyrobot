@@ -1,14 +1,14 @@
-package toyrobot.robot;
+package toyrobot.toyrobot;
 
 import toyrobot.entities.Coordinates;
-import toyrobot.entities.Vector;
+import toyrobot.entities.CoordinatesFacingADirection;
 
-public interface IRobot {
+public interface IToyRobot {
     
     public void move();
     public void rotateLeft();
     public void rotateRight();
     public Coordinates nextMovePosition();
-    public Vector getDetails();
+    public CoordinatesFacingADirection getDetails();
 
 }
