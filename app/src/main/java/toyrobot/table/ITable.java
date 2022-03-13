@@ -1,6 +1,5 @@
 package toyrobot.table;
 
-import java.util.Optional;
 import toyrobot.util.Vector;
 
 public interface ITable {
@@ -9,6 +8,6 @@ public interface ITable {
     public void move();
     public void left();
     public void right();
-    public Optional<Vector> report();
+    public Vector report();
 
 }

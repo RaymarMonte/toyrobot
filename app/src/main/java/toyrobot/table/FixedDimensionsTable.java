@@ -48,10 +48,10 @@ public class FixedDimensionsTable implements ITable {
     }
 
     @Override
-    public Optional<Vector> report() {
-        Optional<Vector> vector = Optional.empty();
+    public Vector report() {
+        Vector vector = null;
         if (robot.isPresent()) {
-            vector = Optional.of(robot.get().getDetails());
+            vector = robot.get().getDetails();
         }
         return vector;
     }
