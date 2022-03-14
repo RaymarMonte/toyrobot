@@ -1,7 +1,7 @@
-package toyrobot.toyrobot;
+package toyrobot.domains.toyrobot;
 
 import toyrobot.entities.Coordinates;
-import toyrobot.entities.CoordinatesFacingADirection;
+import toyrobot.entities.CoordinatesWithDirection;
 
 public interface IToyRobot {
     
@@ -9,6 +9,6 @@ public interface IToyRobot {
     public void rotateLeft();
     public void rotateRight();
     public Coordinates nextMovePosition();
-    public CoordinatesFacingADirection getDetails();
+    public CoordinatesWithDirection getDetails();
 
 }

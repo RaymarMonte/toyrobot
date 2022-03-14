@@ -1,18 +1,17 @@
-package toyrobot.toyrobot;
+package toyrobot.domains.toyrobot;
 
 import java.util.EnumMap;
 
 import toyrobot.entities.Coordinates;
 import toyrobot.entities.Direction;
-import toyrobot.entities.CoordinatesFacingADirection;
+import toyrobot.entities.CoordinatesWithDirection;
 
 /**
- * Implementation of a robot that gets placed on a table, can move one step
- * on the direction it's facing, can face left, and can face right.
+ * A toy robot that can move one step on the direction it's facing.
  */
 public class ToyRobot implements IToyRobot {
 
-    private CoordinatesFacingADirection details;
+    private CoordinatesWithDirection details;
 
     /** 
      * Map of the forward displacement that will be done depending on the
@@ -21,12 +20,12 @@ public class ToyRobot implements IToyRobot {
     private static final EnumMap<Direction, Coordinates> movementMap =
         createMovementMap();
 
-    public ToyRobot(CoordinatesFacingADirection details) {
+    public ToyRobot(CoordinatesWithDirection details) {
         this.details = details;
     }
 
     public ToyRobot(int x, int y, Direction orientation) {
-        details = new CoordinatesFacingADirection(x, y, orientation);
+        details = new CoordinatesWithDirection(x, y, orientation);
     }
 
     @Override
@@ -56,8 +55,8 @@ public class ToyRobot implements IToyRobot {
      * Returns a copy of the the current details of the robot.
      */
     @Override
-    public CoordinatesFacingADirection getDetails() {
-        return new CoordinatesFacingADirection(details);
+    public CoordinatesWithDirection getDetails() {
+        return new CoordinatesWithDirection(details);
     }
     
     private static EnumMap<Direction, Coordinates> createMovementMap() {
