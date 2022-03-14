@@ -1,4 +1,4 @@
-package toyrobot.util;
+package toyrobot.utils;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
