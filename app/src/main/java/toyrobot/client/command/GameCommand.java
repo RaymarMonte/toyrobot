@@ -1,26 +1,26 @@
-package toyrobot;
+package toyrobot.client.command;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
-import toyrobot.table.ITable;
-import toyrobot.util.Direction;
-import toyrobot.util.Vector;
+import toyrobot.entities.Direction;
+import toyrobot.domains.game.IGame;
+import toyrobot.entities.CoordinatesWithDirection;
 
-public class TableCommand {
+public class GameCommand implements IGameCommand {
     
     private static HashMap<String, String> commandMap =
         createCommandMap();
 
     private Object[] params;
-    private ITable table;
+    private IGame game;
     private Method method;
 
-    public TableCommand(ITable table, String command, Object[] params) {
-        this.table = table;
-        if (isVector(params)) {
-            this.params = new Object[] {toVector(params)};
+    public GameCommand(IGame game, String command, Object[] params) {
+        this.game = game;
+        if (isCoordinatesWithDirection(params)) {
+            this.params = new Object[] {toCoordinatesWithDirection(params)};
         } else {
             this.params = params;
         }
@@ -29,19 +29,19 @@ public class TableCommand {
             paramTypes[i] = params[i].getClass();
         }
         try {
-            method = table.getClass().getMethod(commandMap.get(command), paramTypes);
+            method = game.getClass().getMethod(commandMap.get(command), paramTypes);
         } catch (NoSuchMethodException | SecurityException | NullPointerException e) {
             // Ignore
         }
     }
 
-    public Object execute() {
+    @Override
+    public void execute() {
         try {
-            return method.invoke(table, params);
+            method.invoke(game, params);
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NullPointerException e) {
             // Ignore
         }
-        return null;
     }
 
     private static HashMap<String, String> createCommandMap() {
@@ -54,7 +54,7 @@ public class TableCommand {
         return commandMap;
     }
 
-    private static boolean isVector(Object[] params) {
+    private static boolean isCoordinatesWithDirection(Object[] params) {
         if (params.length != 3)
             return false;
         try {
@@ -68,8 +68,9 @@ public class TableCommand {
         return true;
     }
 
-    private static Vector toVector(Object[] params) {
-        return new Vector(
+    private static CoordinatesWithDirection toCoordinatesWithDirection(
+        Object[] params) {
+        return new CoordinatesWithDirection(
             Integer.parseInt((String) params[0]),
             Integer.parseInt((String) params[1]),
             Direction.valueOf((String) params[2])
