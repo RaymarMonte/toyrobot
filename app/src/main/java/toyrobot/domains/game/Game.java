@@ -51,9 +51,14 @@ public class Game implements IGame {
     }
 
     @Override
-    public void report() {
-        robot.ifPresent(placedRobot -> reporter.report(
-            placedRobot.getDetails()));
+    public CoordinatesWithDirection report() {
+        if (robot.isPresent()) {
+            CoordinatesWithDirection coordsWithDirection =
+                robot.get().getDetails();
+            reporter.report(coordsWithDirection);
+            return coordsWithDirection;
+        }
+        return null;
     }
 
     private static boolean isCoordinatesValid(

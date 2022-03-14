@@ -8,6 +8,6 @@ public interface IGame {
     public void move();
     public void left();
     public void right();
-    public void report();
+    public CoordinatesWithDirection report();
 
 }
