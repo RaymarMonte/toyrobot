@@ -3,22 +3,22 @@ package toyrobot.entities;
 /**
  * An entity that has coordinates and a direction it's facing.
  */
-public class Vector {
+public class CoordinatesWithDirection {
     
     private Coordinates coordinates;
     private Direction orientation;
     
-    public Vector(Coordinates position, Direction orientation) {
+    public CoordinatesWithDirection(Coordinates position, Direction orientation) {
         this.coordinates = position;
         this.orientation = orientation;
     }
 
-    public Vector(int x, int y, Direction orientation) {
+    public CoordinatesWithDirection(int x, int y, Direction orientation) {
         this(new Coordinates(x, y), orientation);
     }
 
     /** Copy constructor */
-    public Vector(Vector toCopy) {
+    public CoordinatesWithDirection(CoordinatesWithDirection toCopy) {
         this.coordinates = new Coordinates(toCopy.coordinates);
         this.orientation = toCopy.orientation;
     }
@@ -56,7 +56,7 @@ public class Vector {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Vector other = (Vector) obj;
+        CoordinatesWithDirection other = (CoordinatesWithDirection) obj;
         if (orientation != other.orientation)
             return false;
         if (coordinates == null) {
