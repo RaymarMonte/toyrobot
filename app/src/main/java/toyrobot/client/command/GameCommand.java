@@ -36,11 +36,12 @@ public class GameCommand implements IGameCommand {
     }
 
     @Override
-    public void execute() {
+    public boolean execute() {
         try {
             method.invoke(game, params);
+            return true;
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NullPointerException e) {
-            // Ignore
+            return false;
         }
     }
 
