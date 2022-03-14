@@ -1,17 +1,17 @@
-package toyrobot.game;
+package toyrobot.domains.game;
 
 import java.util.Optional;
 
+import toyrobot.domains.toyrobot.IToyRobot;
+import toyrobot.domains.toyrobot.ToyRobotFactory;
 import toyrobot.entities.Coordinates;
-import toyrobot.entities.CoordinatesFacingADirection;
-import toyrobot.reporter.IReporter;
-import toyrobot.toyrobot.IToyRobot;
-import toyrobot.toyrobot.RobotFactory;
+import toyrobot.entities.CoordinatesWithDirection;
+import toyrobot.services.reporter.IReporter;
 
 public class Game implements IGame {
     
-    private static final int TABLE_DIMENSION_X = 5;
-    private static final int TABLE_DIMENSION_Y = 5;
+    private static final int BOARD_DIMENSION_X = 5;
+    private static final int BOARD_DIMENSION_Y = 5;
 
     private Optional<IToyRobot> robot;
     private IReporter reporter;
@@ -22,9 +22,9 @@ public class Game implements IGame {
     }
 
     @Override
-    public void place(CoordinatesFacingADirection coordsFacingDirection) {
-        if (isCoordinatesValid(coordsFacingDirection.getCoordinates())) {
-            robot = Optional.of(RobotFactory.getRobot(coordsFacingDirection));
+    public void place(CoordinatesWithDirection coordsWithDirection) {
+        if (isCoordinatesValid(coordsWithDirection.getCoordinates())) {
+            robot = Optional.of(ToyRobotFactory.createRobot(coordsWithDirection));
         }
     }
 
@@ -59,10 +59,10 @@ public class Game implements IGame {
     private static boolean isCoordinatesValid(
         Coordinates coordinates) {
         if (coordinates.getX() < 0 ||
-            coordinates.getX() >= TABLE_DIMENSION_X)
+            coordinates.getX() >= BOARD_DIMENSION_X)
             return false;
         if (coordinates.getY() < 0 ||
-            coordinates.getY() >= TABLE_DIMENSION_Y)
+            coordinates.getY() >= BOARD_DIMENSION_Y)
             return false;
         return true;
     }
