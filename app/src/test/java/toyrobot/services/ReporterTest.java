@@ -1,9 +1,10 @@
-package toyrobot;
+package toyrobot.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import toyrobot.SysOutTest;
 import toyrobot.entities.CoordinatesWithDirection;
 import toyrobot.entities.Direction;
 import toyrobot.services.reporter.Reporter;
