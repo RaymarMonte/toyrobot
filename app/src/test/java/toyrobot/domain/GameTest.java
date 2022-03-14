@@ -1,4 +1,4 @@
-package toyrobot;
+package toyrobot.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import toyrobot.SysOutTest;
 import toyrobot.domains.game.Game;
 import toyrobot.entities.CoordinatesWithDirection;
 import toyrobot.entities.Direction;

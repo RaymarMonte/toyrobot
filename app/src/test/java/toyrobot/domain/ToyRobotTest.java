@@ -1,4 +1,4 @@
-package toyrobot;
+package toyrobot.domain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
