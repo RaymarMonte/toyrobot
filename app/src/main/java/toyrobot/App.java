@@ -6,7 +6,7 @@ package toyrobot;
 public class App {
 
     public static void main(String[] args) {
-        ToyRobotApp app = new ToyRobotApp();
-        app.start();
+        ToyRobotApp toyRobotApp = new ToyRobotApp(args);
+        toyRobotApp.run();
     }
 }
