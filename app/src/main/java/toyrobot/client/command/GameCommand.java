@@ -24,9 +24,9 @@ public class GameCommand implements IGameCommand {
         } else {
             this.params = params;
         }
-        Class[] paramTypes = new Class[params.length];
-        for (int i = 0; i < params.length; i++) {
-            paramTypes[i] = params[i].getClass();
+        Class[] paramTypes = new Class[this.params.length];
+        for (int i = 0; i < this.params.length; i++) {
+            paramTypes[i] = this.params[i].getClass();
         }
         try {
             method = game.getClass().getMethod(commandMap.get(command), paramTypes);
