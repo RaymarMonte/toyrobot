@@ -21,7 +21,9 @@ public class GameClient implements IInputSourceListener {
     @Override
     public void processInput(String input) {
         IGameCommand gameCommand = inputParser.parseCommand(input, game);
-        executeGameCommand(gameCommand);
+        if (gameCommand != null) {
+            executeGameCommand(gameCommand);
+        }
     }
 
     private void executeGameCommand(IGameCommand gameCommand) {
