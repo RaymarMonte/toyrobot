@@ -1,4 +1,4 @@
-package toyrobot;
+package toyrobot.client;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import toyrobot.SysOutTest;
 import toyrobot.client.command.GameCommand;
 import toyrobot.domains.game.IGame;
 
