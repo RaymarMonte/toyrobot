@@ -1,9 +1,7 @@
-package toyrobot;
+package toyrobot.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-
-import toyrobot.entities.Direction;
 
 class DirectionTest {
     
