@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import toyrobot.SysOutTest;
 import toyrobot.entities.CoordinatesWithDirection;
 import toyrobot.entities.Direction;
 import toyrobot.services.reporter.Reporter;
+import toyrobot.testutil.SysOutTest;
 
 public class ReporterTest extends SysOutTest {
     

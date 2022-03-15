@@ -6,13 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import toyrobot.SysOutTest;
 import toyrobot.domains.game.Game;
 import toyrobot.entities.CoordinatesWithDirection;
 import toyrobot.entities.Direction;
 import toyrobot.services.reporter.IReporter;
 
-public class GameTest extends SysOutTest {
+public class GameTest {
     
     private IReporter reporter = Mockito.mock(IReporter.class);
 

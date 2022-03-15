@@ -1,4 +1,4 @@
-package toyrobot;
+package toyrobot.testutil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

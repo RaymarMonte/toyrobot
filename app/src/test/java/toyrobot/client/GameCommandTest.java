@@ -8,12 +8,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import toyrobot.SysOutTest;
 import toyrobot.client.command.GameCommand;
 import toyrobot.domains.game.IGame;
 
 
-public class GameCommandTest extends SysOutTest {
+public class GameCommandTest {
 
     private static IGame game = Mockito.mock(IGame.class);
 
