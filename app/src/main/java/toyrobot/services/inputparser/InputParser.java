@@ -17,7 +17,7 @@ public class InputParser implements IInputParser {
             Matcher matcher = pattern.matcher(input);
             if (matcher.matches()) {
                 ArrayList<String> paramList = new ArrayList<>();
-                for (int i = 1;i <= matcher.groupCount();i++) {
+                for (int i = 1;i <= matcher.groupCount();i++) { // Started with 1 since 0th is the whole match
                     paramList.add(matcher.group(i));
                 }
                 return GameCommandFactory.createGameCommand(
