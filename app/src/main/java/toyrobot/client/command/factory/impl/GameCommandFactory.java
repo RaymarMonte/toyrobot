@@ -16,22 +16,22 @@ public abstract class GameCommandFactory implements IGameCommandFactory {
      * GameCommand for the given vaid input.
      */
     private static HashMap<String, IGameCommandFactory> commandFactoryMap =
-        createCommandMap();
+        createCommandFactoryMap();
 
     public static IGameCommand createGameCommand(String matchedPattern, IGame game, String[] params) {
         IGameCommandFactory gameCommandFactory = commandFactoryMap.get(matchedPattern);
         return gameCommandFactory.createGameCommand(game, params);
     }
 
-    private static HashMap<String, IGameCommandFactory> createCommandMap() {
-        HashMap<String, IGameCommandFactory> commandMap = new HashMap<>();
-        commandMap.put("^(PLACE) (\\d+),(\\d+),(NORTH|EAST|SOUTH|WEST)$",
+    private static HashMap<String, IGameCommandFactory> createCommandFactoryMap() {
+        HashMap<String, IGameCommandFactory> commandFactoryMap = new HashMap<>();
+        commandFactoryMap.put("^PLACE (\\d+),(\\d+),(NORTH|EAST|SOUTH|WEST)$",
             new PlaceGameCommandFactory());
-        commandMap.put("^(MOVE)$", new SimpleGameCommandFactory("move"));
-        commandMap.put("^(LEFT)$", new SimpleGameCommandFactory("left"));
-        commandMap.put("^(RIGHT)$", new SimpleGameCommandFactory("right"));
-        commandMap.put("^(REPORT)$", new SimpleGameCommandFactory("report"));
-        return commandMap;
+        commandFactoryMap.put("^MOVE$", new SimpleGameCommandFactory("move"));
+        commandFactoryMap.put("^LEFT$", new SimpleGameCommandFactory("left"));
+        commandFactoryMap.put("^RIGHT$", new SimpleGameCommandFactory("right"));
+        commandFactoryMap.put("^REPORT$", new SimpleGameCommandFactory("report"));
+        return commandFactoryMap;
     }
 
     public static Set<String> getValidPatterns() {
