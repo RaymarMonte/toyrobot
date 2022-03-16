@@ -1,4 +1,4 @@
-package toyrobot.client.command;
+package toyrobot.client.command.command;
 
 public interface IGameCommand {
     
