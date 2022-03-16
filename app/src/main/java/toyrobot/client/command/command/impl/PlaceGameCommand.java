@@ -1,5 +1,7 @@
 package toyrobot.client.command.command.impl;
 
+import java.util.ArrayList;
+
 import toyrobot.client.command.command.GameCommand;
 import toyrobot.domains.game.IGame;
 import toyrobot.entities.CoordinatesWithDirection;
@@ -12,15 +14,40 @@ public class PlaceGameCommand extends GameCommand {
 
     private final static String PLACE_COMMAND = "place";
 
-    public PlaceGameCommand(IGame game, String[] params) {
+    public PlaceGameCommand(IGame game, String[] strParams) {
         this.game = game;
-        this.params = new Object[]{toCoordinatesWithDirection(params)};
-        Class[] paramTypes = new Class[]{this.params[0].getClass()};
+        if (isCoordinatesWithDirection(strParams)) {
+            this.params = new Object[]{toCoordinatesWithDirection(strParams)};
+        }
+        ArrayList<Class> paramTypeList = new ArrayList<>();
+        for (Object param : this.params) {
+            paramTypeList.add(param.getClass());
+        }
         try {
-            this.method = game.getClass().getMethod(PLACE_COMMAND, paramTypes);
+            this.method = game.getClass().getMethod(
+                PLACE_COMMAND, paramTypeList.toArray(Class[]::new));
         } catch (NoSuchMethodException | SecurityException e) {
             // Ignore
         }
+    }
+
+    private static boolean isCoordinatesWithDirection(String[] params) {
+        if (params == null)
+            return false;
+        if (params.length != 3)
+            return false;
+        try {
+            Integer.parseInt(params[0]);
+            Integer.parseInt(params[1]);
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+        try {
+            Direction.valueOf(params[2]);
+        } catch (IllegalArgumentException ex) {
+            return false;
+        }
+        return true;
     }
 
     private static CoordinatesWithDirection toCoordinatesWithDirection(
