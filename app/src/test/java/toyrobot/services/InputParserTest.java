@@ -20,7 +20,7 @@ public class InputParserTest {
 
     @Test void parsingInvalidInputDoesNotProduceGameCommand() {
         InputParser inputParser = new InputParser();
-        assertNull(inputParser.parseCommand("PLACE 1", game));
+        assertNull(inputParser.parseCommand("MOVE 1", game));
     }
 
 }
