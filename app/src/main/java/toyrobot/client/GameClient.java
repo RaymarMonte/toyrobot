@@ -1,6 +1,6 @@
 package toyrobot.client;
 
-import toyrobot.client.command.IGameCommand;
+import toyrobot.client.command.command.IGameCommand;
 import toyrobot.domains.game.IGame;
 import toyrobot.services.inputparser.IInputParser;
 import toyrobot.services.inputsource.IInputSourceListener;
