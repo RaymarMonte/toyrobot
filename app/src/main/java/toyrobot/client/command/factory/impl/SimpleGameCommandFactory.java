@@ -1,8 +1,8 @@
-package toyrobot.client.command.factory;
+package toyrobot.client.command.factory.impl;
 
 import toyrobot.client.command.command.IGameCommand;
 import toyrobot.client.command.command.impl.SimpleGameCommand;
-import toyrobot.client.command.factory.impl.GameCommandFactory;
+import toyrobot.client.command.factory.GameCommandFactory;
 import toyrobot.domains.game.IGame;
 
 public class SimpleGameCommandFactory extends GameCommandFactory {

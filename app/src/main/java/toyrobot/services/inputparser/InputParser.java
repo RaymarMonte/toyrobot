@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import toyrobot.client.command.command.IGameCommand;
-import toyrobot.client.command.factory.impl.GameCommandFactory;
+import toyrobot.client.command.factory.GameCommandFactory;
 import toyrobot.domains.game.IGame;
 
 public class InputParser implements IInputParser {

@@ -1,11 +1,11 @@
-package toyrobot.client.command.factory.impl;
+package toyrobot.client.command.factory;
 
 import java.util.HashMap;
 import java.util.Set;
 
 import toyrobot.client.command.command.IGameCommand;
-import toyrobot.client.command.factory.IGameCommandFactory;
-import toyrobot.client.command.factory.SimpleGameCommandFactory;
+import toyrobot.client.command.factory.impl.PlaceGameCommandFactory;
+import toyrobot.client.command.factory.impl.SimpleGameCommandFactory;
 import toyrobot.domains.game.IGame;
 
 public abstract class GameCommandFactory implements IGameCommandFactory {
