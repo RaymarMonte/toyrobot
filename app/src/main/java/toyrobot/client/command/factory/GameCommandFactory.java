@@ -20,7 +20,10 @@ public abstract class GameCommandFactory implements IGameCommandFactory {
 
     public static IGameCommand createGameCommand(String matchedPattern, IGame game, String[] params) {
         IGameCommandFactory gameCommandFactory = commandFactoryMap.get(matchedPattern);
-        return gameCommandFactory.createGameCommand(game, params);
+        if (gameCommandFactory != null) {
+            return gameCommandFactory.createGameCommand(game, params);
+        }
+        return null;
     }
 
     private static HashMap<String, IGameCommandFactory> createCommandFactoryMap() {
