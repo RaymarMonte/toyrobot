@@ -7,9 +7,9 @@ import toyrobot.domains.game.IGame;
 
 public abstract class GameCommand implements IGameCommand {
 
-    protected IGame game;
-    protected Object[] params;
-    protected Method method;
+    protected IGame game = null;
+    protected Object[] params = new Object[0];
+    protected Method method = null;
 
     @Override
     public boolean execute() {
