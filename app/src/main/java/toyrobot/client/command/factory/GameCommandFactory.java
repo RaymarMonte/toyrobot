@@ -13,7 +13,7 @@ public abstract class GameCommandFactory implements IGameCommandFactory {
     /**
      * Map of regex patterns that dictate a valid input and the corresponding
      * GameCommandFactory that will be used to produce the appropriate
-     * GameCommand for the given vaid input.
+     * GameCommand for the given valid input.
      */
     private static HashMap<String, IGameCommandFactory> commandFactoryMap =
         createCommandFactoryMap();
