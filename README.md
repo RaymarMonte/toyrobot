@@ -15,7 +15,7 @@ Afterwards, you can go to `\app\build\reports\tests\test` and open the `index.ht
 
 You can also test a specific test class or even a specific method.
 ```bash
-gradlew test --tests GameTest # Run all the test case of GameTest
+gradlew test --tests PlaceGameCommandTest # Run all the test case of GameTest
 gradlew test --tests InputParserTest.parsingValidInputProducesGameCommand # Run only the specified method of InputParserTest
 ```
 ## Running
