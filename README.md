@@ -21,7 +21,7 @@ gradlew test --tests InputParserTest.parsingValidInputProducesGameCommand # Run 
 ## Running
 To run the app, use
 ```bash
-gradlew run --args='<text-file-containing-commands>'
+gradlew run --args='<path-to-file-with-commands>'
 ```
 For example
 ```bash
